@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Practise JS questions for interveiw</h1>
+
+    <script>
+      // var a = 5;
+      // var b =5;
+
+      // console.log(a+b);
+
+      /*get array and targated values 
+loop all elemnts 
+check if sum of elemnts  == target 
+then return indexes of that elemnts 
+else return not match
+*/
+
+// Check if a pair exists with given sum in given array
+      function twoSum(input, target) {
+        for (let i = 0; i < (input.length)-1; i++) {
+          for (let j = (i+1); j < input.length; j++) {
+            if (input[i] + input[j] == target) {
+              console.log("["+input[i]+" , " + input[j] + "]");
+              return true;
+            //   break;
+            } 
+          }
+        }
+        console.log("not matched");
+        return false;
+
+      }
+      var arr = [1,0,2,1,11,11];
+      twoSum(arr,11);
+
+
+      
+    </script>
+  </body>
+</html>
