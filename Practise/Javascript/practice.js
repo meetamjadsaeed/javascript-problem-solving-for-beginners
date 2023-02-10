@@ -739,26 +739,26 @@
 // You are given a sentence s​​​​​​ and an integer k​​​​​​. You want to truncate s​​​​​​ such that it contains only the first k​​​​​​ words. Return s​​​​​​ after truncating it.
 
 
+// function truncateSentence(s, k) {
+//     // Split the sentence into words by spaces
+//     let words = s.split(" ");
+  
+//     // Check if the number of words is less than or equal to k
+//     if (words.length <= k) {
+//         return s;
+//     }
+  
+//     // Truncate the words array to only the first k words
+//     words = words.slice(0, k);
+  
+//     // Join the truncated words array into a sentence string
+//     let truncated = words.join(" ");
+  
+//     return truncated;
+// }
 
 
-const Pangram = (input) => {
-
-let letters = new Set();
-for (let i = 0; i < input.length; i++){
-    letters.add(input[i]);
-}
-
-let alphabet = "abcdefghijklmnopqrstuvwxyz";
-for (let i = 0; i < alphabet.length; i++){
-    if (!letters.has(alphabet[i])){
-        return false;
-    }
-}
-
-    return true;
-}
-
-console.log(Pangram("leetcode"));
+// console.log(truncateSentence("Hello how are you Contestant", "4"));
 
 
 
