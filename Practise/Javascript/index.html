@@ -8,6 +8,15 @@
   <body>
     <h1>Practise JS questions for interveiw</h1>
 
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; max-width: 100%;">
+      <iframe 
+          src="https://video.eko.com/v/zmbpG0" 
+          title="That Moment When"
+          style="width: 100%; height: 100%; border: 0; position: absolute; left:0; right:0;" 
+          allowfullscreen 
+          allow="autoplay; fullscreen">
+      </iframe>
+  </div>
     <script>
       // var a = 5;
       // var b =5;
@@ -22,22 +31,23 @@ else return not match
 */
 
 // Check if a pair exists with given sum in given array
-      function twoSum(input, target) {
-        for (let i = 0; i < (input.length)-1; i++) {
-          for (let j = (i+1); j < input.length; j++) {
-            if (input[i] + input[j] == target) {
-              console.log("["+input[i]+" , " + input[j] + "]");
-              return true;
-            //   break;
-            } 
-          }
-        }
-        console.log("not matched");
-        return false;
+      // function twoSum(input, target) {
+      //   for (let i = 0; i < (input.length)-1; i++) {
+      //     for (let j = (i+1); j < input.length; j++) {
+      //       if (input[i] + input[j] == target) {
+      //         console.log("["+input[i]+" , " + input[j] + "]");
+      //         return true;
+      //       //   break;
+      //       } 
+      //     }
+      //   }
+      //   console.log("not matched");
+      //   return false;
 
-      }
-      var arr = [1,0,2,1,11,11];
-      twoSum(arr,11);
+      // }
+      // var arr = [1,0,2,1,11,11];
+      // twoSum(arr,11);
+
 
 
       
