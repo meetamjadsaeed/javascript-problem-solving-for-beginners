@@ -1516,7 +1516,165 @@
 
   
   
+// Q: 21 Given two string arrays word1 and word2, return true if the two arrays represent the same string, and false otherwise.
 
+// A string is represented by an array if the array elements concatenated in order forms the string
+
+// function arraysEqual(word1, word2) {
+//     //check if the length of the two arrays are equal, return false if not equal
+//     if (word1.length !== word2.length) {
+//       return false;
+//     }
+//     //loop through each element in the first array
+//     for (let i = 0; i < word1.length; i++) {
+//       //check if the elements at the same position in both arrays are equal, return false if not equal
+//       if (word1[i] !== word2[i]) {
+//         return false;
+//       }
+//     }
+//     //if all elements are equal, return true
+//     return true;
+//   }
+
+
+// Q: 22 Given an integer array nums and an integer k, return the number of pairs (i, j) where i < j such that |nums[i] - nums[j]| == k.
+
+// The value of |x| is defined as:
+
+// x if x >= 0.
+// -x if x < 0.
+
+
+// function findPairsWithGivenDifference(nums, k) {
+//     let count = 0; 
+//     let map = new Map(); // Create a map to store the number of occurrences of each number in the array
+  
+//     for (let i = 0; i < nums.length; i++) {
+//       map.set(nums[i], (map.get(nums[i]) || 0) + 1); // Store the number of occurrences of each number in the array in the map
+//     }
+  
+//     for (let i = 0; i < nums.length; i++) {
+//       let target = nums[i] + k; // Calculate the target value by adding k to the current number
+//       if (map.has(target)) { // Check if the target value exists in the map
+//         count++; 
+//         map.set(target, map.get(target) - 1); // Decrement the count of the target value in the map
+//         if (map.get(target) === 0) { // If the count of the target value becomes 0, remove it from the map
+//           map.delete(target);
+//         }
+//       }
+//     }
+  
+//     return count; 
+//   }
+  
+
+
+// Q: 23 You are given a string allowed consisting of distinct characters and an array of strings words. A string is consistent if all characters in the string appear in the string allowed.
+
+// Return the number of consistent strings in the array words.
+
+
+// function consistentStrings(allowed, words) {
+//     // Create a Set from the allowed string to make it easier to check for characters in it
+//     let allowedSet = new Set(allowed);
+//     let count = 0;
+    
+//     // Loop through the words array
+//     for (let word of words) {
+//       let isConsistent = true;
+      
+//       // Loop through the word to check if all its characters are in allowedSet
+//       for (let char of word) {
+//         if (!allowedSet.has(char)) {
+//           isConsistent = false;
+//           break;
+//         }
+//       }
+      
+//       // If all characters are in allowedSet, increment the count
+//       if (isConsistent) {
+//         count++;
+//       }
+//     }
+    
+//     // Return the final count
+//     return count;
+//   }
+  
+
+// Q: 24 There are n seats and n students in a room. You are given an array seats of length n, where seats[i] is the position of the ith seat. You are also given the array students of length n, where students[j] is the position of the jth student.
+
+// You may perform the following move any number of times:
+
+// Increase or decrease the position of the ith student by 1 (i.e., moving the ith student from position x to x + 1 or x - 1)
+// Return the minimum number of moves required to move each student to a seat such that no two students are in the same seat.
+
+// Note that there may be multiple seats or students in the same position at the beginning.
+
+// function minMoves(seats, students) {
+//     // Sort the seats and students arrays in ascending order
+//     seats.sort((a, b) => a - b);
+//     students.sort((a, b) => a - b);
+  
+//     let result = 0;
+//     // Loop through the students array
+//     for (let i = 0; i < students.length; i++) {
+//       // Find the closest seat for the current student
+//       let seatIndex = binarySearch(seats, students[i]);
+//       // Calculate the number of moves required for the current student
+//       result += Math.abs(seats[seatIndex] - students[i]);
+//     }
+  
+//     return result;
+//   }
+  
+//   function binarySearch(array, target) {
+//     let left = 0;
+//     let right = array.length - 1;
+  
+//     while (left < right) {
+//       let mid = Math.floor((left + right) / 2);
+//       if (array[mid] < target) {
+//         left = mid + 1;
+//       } else {
+//         right = mid;
+//       }
+//     }
+  
+//     return left;
+//   }
+
+
+
+
+// Q: 25 You are given an m x n matrix grid consisting of positive integers.
+
+// Perform the following operation until grid becomes empty:
+
+// Delete the element with the greatest value from each row. If multiple such elements exist, delete any of them.
+// Add the maximum of deleted elements to the answer.
+// Note that the number of columns decreases by one after each operation.
+
+// Return the answer after performing the operations described above.
+
+
+// function maximumDeleteSum(grid) {
+//     let rows = grid.length, cols = grid[0].length;
+//     let max = [];
+//     for (let i = 0; i < rows; i++) {
+//       max[i] = Math.max(...grid[i]);
+//     }
+//     max.sort((a, b) => b - a);
+//     let sum = 0;
+//     for (let i = 0; i < cols; i++) {
+//       sum += max[i];
+//     }
+//     return sum;
+//   }
+  
+
+
+  
   
 
 
