@@ -763,6 +763,220 @@
 
 
 
+//  Q:21 International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:
+
+// 'a' maps to ".-",
+// 'b' maps to "-...",
+// 'c' maps to "-.-.", and so on.
+// For convenience, the full table for the 26 letters of the English alphabet is given below:
+
+
+// initilize a map with key and values morse values
+// convert string to lowercase
+// split string to individual characters
+// declare any array with name morse to store the morse code
+// loop thorugh charaters
+// 	check if that character is available in mosrecode map 
+// 	then push push that character in morse
+
+// join morse code in string with spaces
+
+
+
+// const MorseCode = (str) => {
+
+//     const morseCode = {
+//         'a': '.-',
+//         'b': '-...',
+//         'c': '-.-.',
+//         'd': '-..',
+//         'e': '.',
+//         'f': '..-.',
+//         'g': '--.',
+//         'h': '....',
+//         'i': '..',
+//         'j': '.---',
+//         'k': '-.-',
+//         'l': '.-..',
+//         'm': '--',
+//         'n': '-.',
+//         'o': '---',
+//         'p': '.--.',
+//         'q': '--.-',
+//         'r': '.-.',
+//         's': '...',
+//         't': '-',
+//         'u': '..-',
+//         'v': '...-',
+//         'w': '.--',
+//         'x': '-..-',
+//         'y': '-.--',
+//         'z': '--..'
+//     };
+
+//     // Convert the string to lowercase
+//     str = str.toLowerCase();
+  
+//     // Split the string into individual characters
+//     let chars = str.split("");
+  
+//     // Create an array to store the morse code for each character
+//     let morse = [];
+  
+//     // Iterate through each character in the string
+//     for (let char of chars) {
+//         // If the character is a letter of the alphabet, get its morse code from the morseCode object
+//         if (morseCode[char]) {
+//             morse.push(morseCode[char]);
+//         }
+//     }
+  
+//     // Join the morse code into a string separated by spaces
+//     return morse.join(" ");
+// }
+
+// console.log(MorseCode("HELLO WORLD"));
+
+
+
+// Q: 22 A string is a valid parentheses string (denoted VPS) if it meets one of the following:
+
+// It is an empty string "", or a single character not equal to "(" or ")",
+// It can be written as AB (A concatenated with B), where A and B are VPS's, or
+// It can be written as (A), where A is a VPS.
+// We can similarly define the nesting depth depth(S) of any VPS S as follows:
+
+// depth("") = 0
+// depth(C) = 0, where C is a string with a single character not equal to "(" or ")".
+// depth(A + B) = max(depth(A), depth(B)), where A and B are VPS's.
+// depth("(" + A + ")") = 1 + depth(A), where A is a VPS.
+// For example, "", "()()", and "()(()())" are VPS's (with nesting depths 0, 1, and 2), and ")(" and "(()" are not VPS's.
+
+// Given a VPS represented as string s, return the nesting depth of s.
+
+
+// function nestingDepth(s) {
+//     // initialize a variable to keep track of the nesting depth
+//     let depth = 0;
+//     // initialize a variable to keep track of the maximum nesting depth
+//     let maxDepth = 0;
+//     // loop through each character in the string
+//     for (let i = 0; i < s.length; i++) {
+//         // if the character is an opening parenthesis, increment the depth
+//         if (s[i] === '(') {
+//             depth++;
+//             // update the max depth if necessary
+//             maxDepth = Math.max(depth, maxDepth);
+//         } 
+//         // if the character is a closing parenthesis, decrement the depth
+//         else if (s[i] === ')') {
+//             depth--;
+//         }
+//     }
+//     // return the max depth
+//     return maxDepth;
+// }
+
+
+// console.log(nestingDepth("(1+(2*3)+((8)/4))+1"));
+
+
+// Q: 23 A string is a valid parentheses string (denoted VPS) if it meets one of the following:
+
+// You are given a string s, where every two consecutive vertical bars '|' are grouped into a pair. In other words, the 1st and 2nd '|' make a pair, the 3rd and 4th '|' make a pair, and so forth.
+
+// Return the number of '*' in s, excluding the '*' between each pair of '|'.
+
+// Note that each '|' will belong to exactly one pair.
+
+
+
+// var countStars = function(s) {
+//     // Initialize a variable to store the count of stars
+//     let count = 0;
+    
+//     // Iterate over each character in the string
+//     for (let i = 0; i < s.length; i++) {
+//       // If the current character is a star, increment the count
+//       if (s[i] === '*') {
+//         count++;
+//       }
+//       // If the current character is a vertical bar, skip the next character
+//       else if (s[i] === '|') {
+//         i++;
+//       }
+//     }
+    
+//     // Return the final count of stars
+//     return count;
+//   };
+
+
+
+
+
+// Q: 24 Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+// This code takes a string as input and replaces all the uppercase letters with the same lowercase letter
+
+// function toLowerCase(s) {
+//     // Initialize an empty string result
+//     let result = "";
+    
+//     // Iterate over each character in the input string
+//     for (let i = 0; i < s.length; i++) {
+//       // Check if the current character is an uppercase letter
+//       if (s.charCodeAt(i) >= 65 && s.charCodeAt(i) <= 90) {
+//         // If it is, add the corresponding lowercase letter to the result string
+//         result += String.fromCharCode(s.charCodeAt(i) + 32);
+//       } else {
+//         // If it's not, just add the character as it is to the result string
+//         result += s[i];
+//       }
+//     }
+    
+//     // Return the final result
+//     return result;
+//   }
+
+
+// Q: 25 You are given a string allowed consisting of distinct characters and an array of strings words. A string is consistent if all characters in the string appear in the string allowed.
+// Return the number of consistent strings in the array words.
+
+
+// function consistentStrings(allowed, words) {
+//     // create a set from the allowed string to have O(1) lookup time
+//     let allowedSet = new Set(allowed.split(''));
+//     let count = 0;
+  
+//     // loop through each word in the words array
+//     for (let word of words) {
+//       let isConsistent = true;
+  
+//       // loop through each character in the word
+//       for (let char of word) {
+//         // check if the character is not in the allowed set
+//         if (!allowedSet.has(char)) {
+//           isConsistent = false;
+//           break; // exit the inner loop if the character is not allowed
+//         }
+//       }
+  
+//       // if all the characters in the word are allowed, increment count
+//       if (isConsistent) {
+//         count++;
+//       }
+//     }
+  
+//     return count;
+//   }
+
+
+
+  
+  
+
+
+  
 
 
 
@@ -890,24 +1104,438 @@
 
 
 
-//  Q:13 A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
+//  Q: 05 A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
 
 //  You are given an array of strings sentences, where each sentences[i] represents a single sentence.
  
 //  Return the maximum number of words that appear in a single sentence.
 
 
+//  // This code returns the maximum number of words that appear in a single sentence
+// function maxWordsInSentence(sentences) {
+//     // Initialize a variable to store the maximum number of words in a sentence
+//     let maxWords = 0;
+  
+//     // Loop through each sentence in the array
+//     for (let sentence of sentences) {
+//       // Split the sentence into words using the single space as a separator
+//       let words = sentence.split(" ");
+//       // Check if the number of words in the current sentence is greater than the current maxWords
+//       if (words.length > maxWords) {
+//         // If it is, update the value of maxWords
+//         maxWords = words.length;
+//       }
+//     }
+    
+//     // Return the maximum number of words
+//     return maxWords;
+//   }
 
 
+// Q: 06 Given a zero-based permutation nums (0-indexed), build an array ans of the same length where ans[i] = nums[nums[i]] for each 0 <= i < nums.length and return it.
 
-// const maximumWords = (input) => {
+// A zero-based permutation nums is an array of distinct integers from 0 to nums.length - 1 (inclusive).
 
 
+// function buildArray(nums) {
+//     // create an empty array to store the result
+//     let ans = [];
+  
+//     // loop through the nums array
+//     for (let i = 0; i < nums.length; i++) {
+//       // for each index i, get the corresponding value in the nums array
+//       // and store it at the same index in the ans array
+//       ans[i] = nums[nums[i]];
+//     }
+  
+//     // return the final ans array
+//     return ans;
+//   }
 
-//     return input;
+
+// Q: 07 Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+
+// Specifically, ans is the concatenation of two nums arrays.
+// Return the array ans.
+
+
+// // Define a function to return the concatenation of two nums arrays
+// function doubleArray(nums) {
+//     // Initialize an empty array "ans"
+//     let ans = [];
+
+//     // Loop through the nums array
+//     for (let i = 0; i < nums.length; i++) {
+//         // Push the current element of nums to the ans array
+//         ans.push(nums[i]);
+//         // Push the current element of nums to the ans array again
+//         ans.push(nums[i]);
+//     }
+//     // Return the ans array
+//     return ans;
 // }
 
-// console.log(maximumWords("255.100.50.0"));
+
+
+// Q: 08 Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
+
+// Return the array in the form [x1,y1,x2,y2,...,xn,yn].
+
+
+// function shuffleArray(nums) {
+//     let result = []; // Declare the result array to store the rearranged elements
+//     for (let i = 0; i < nums.length / 2; i++) { // Loop through the first half of the nums array
+//         result.push(nums[i]); // Push the current element from the first half to the result array
+//         result.push(nums[i + nums.length / 2]); // Push the corresponding element from the second half to the result array
+//     }
+//     return result; // Return the result array
+// }
+
+
+// Q: 09 There is a programming language with only four operations and one variable X:
+
+// ++X and X++ increments the value of the variable X by 1.
+// --X and X-- decrements the value of the variable X by 1.
+// Initially, the value of X is 0.
+
+// Given an array of strings operations containing a list of operations, return the final value of X after performing all the operations.
+
+
+// function finalValue(operations) {
+//     let x = 0; // initialize the variable x with value 0
+  
+//     // loop through the operations array
+//     for (let i = 0; i < operations.length; i++) {
+//       switch (operations[i]) { // use switch statement to check the operation
+//         case "++X": // if the operation is ++X
+//         case "X++":
+//           x++; // increment the value of x by 1
+//           break;
+//         case "--X": // if the operation is --X
+//         case "X--":
+//           x--; // decrement the value of x by 1
+//           break;
+//       }
+//     }
+  
+//     return x; // return the final value of x
+//   }
+  
+
+
+// Q: 10 Given an array of integers nums, return the number of good pairs.
+
+// A pair (i, j) is called good if nums[i] == nums[j] and i < j.
+
+
+// function goodPairs(nums) {
+//     // initialize a count variable to keep track of good pairs
+//     let count = 0;
+//     // loop through the nums array to compare each pair
+//     for (let i = 0; i < nums.length; i++) {
+//       for (let j = i + 1; j < nums.length; j++) {
+//         // if a pair is good, increment the count
+//         if (nums[i] === nums[j]) {
+//           count++;
+//         }
+//       }
+//     }
+//     // return the final count of good pairs
+//     return count;
+//   }
+  
+//   console.log(goodPairs([1,2,3,1,1,3]));
+
+
+
+// Q: 11 Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+
+// Return the running sum of nums.
+
+// // This function calculates the running sum of an array of integers
+// function runningSum(nums) {
+//     // Initialize an empty array to store the running sum
+//     let runningSum = [];
+  
+//     // Initialize a variable to keep track of the current sum
+//     let currentSum = 0;
+  
+//     // Loop through the input array
+//     for (let i = 0; i < nums.length; i++) {
+//       // Add the current element to the current sum
+//       currentSum += nums[i];
+  
+//       // Append the current sum to the running sum array
+//       runningSum.push(currentSum);
+//     }
+  
+//     // Return the running sum array
+//     return runningSum;
+//   }
+
+// Q: 12 You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
+
+// A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+
+// const maximumWealth = (accounts) => {
+//     let maxWealth = 0; // Initialize a variable to store the maximum wealth
+  
+//     // Loop through the accounts array
+//     for (let i = 0; i < accounts.length; i++) {
+//       // Get the sum of the current customer's wealth
+//       let currentWealth = accounts[i].reduce((sum, current) => sum + current, 0);
+//       // Update the maximum wealth if the current customer's wealth is higher
+//       maxWealth = Math.max(maxWealth, currentWealth);
+//     }
+  
+//     // Return the maximum wealth
+//     return maxWealth;
+//   };
+
+
+// Q: 13 There are n kids with candies. You are given an integer array candies, where each candies[i] represents the number of candies the ith kid has, and an integer extraCandies, denoting the number of extra candies that you have.
+
+// Return a boolean array result of length n, where result[i] is true if, after giving the ith kid all the extraCandies, they will have the greatest number of candies among all the kids, or false otherwise.
+
+// Note that multiple kids can have the greatest number of candies.
+
+// function kidsWithCandies(candies, extraCandies) {
+//     // Find the maximum number of candies among all kids
+//     let maxCandies = Math.max(...candies);
+    
+//     // Create an array to store the result
+//     let result = [];
+    
+//     // Loop through each kid
+//     for (let i = 0; i < candies.length; i++) {
+//       // Check if the kid will have the greatest number of candies after receiving extraCandies
+//       if (candies[i] + extraCandies >= maxCandies) {
+//         result.push(true);
+//       } else {
+//         result.push(false);
+//       }
+//     }
+    
+//     // Return the result
+//     return result;
+//   }
+
+// Q: 14 You are given a positive integer array nums.
+
+// The element sum is the sum of all the elements in nums.
+// The digit sum is the sum of all the digits (not necessarily distinct) that appear in nums.
+// Return the absolute difference between the element sum and digit sum of nums.
+
+// Note that the absolute difference between two integers x and y is defined as |x - y|.
+
+
+// // define the function that takes in an array of positive integers "nums"
+// function elementAndDigitDifference(nums) {
+//     // initialize the variable "elementSum" to keep track of the sum of all elements in "nums"
+//     let elementSum = 0;
+//     // initialize the variable "digitSum" to keep track of the sum of all digits in "nums"
+//     let digitSum = 0;
+//     // use for loop to iterate through each element in the "nums" array
+//     for (let i = 0; i < nums.length; i++) {
+//       // add the current element to the "elementSum"
+//       elementSum += nums[i];
+//       // convert the current element to string and split it into individual characters
+//       let digits = nums[i].toString().split("");
+//       // use another for loop to iterate through each character in "digits"
+//       for (let j = 0; j < digits.length; j++) {
+//         // convert the current character to integer and add it to "digitSum"
+//         digitSum += parseInt(digits[j]);
+//       }
+//     }
+//     // return the absolute difference between "elementSum" and "digitSum"
+//     return Math.abs(elementSum - digitSum);
+//   }
+  
+
+// Q: 15 Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+
+// Return the answer in an array.
+
+// function smallerNumbersThanCurrent(nums) {
+//     let result = [];  // array to store the count of numbers smaller than the current number
+//     for (let i = 0; i < nums.length; i++) { // loop through the nums array
+//       let count = 0;  // count to keep track of numbers smaller than the current number
+//       for (let j = 0; j < nums.length; j++) {  // inner loop to compare the current number with other numbers in the array
+//         if (nums[j] < nums[i]) {  // if the current number is smaller than the number being compared
+//           count++;  // increment the count
+//         }
+//       }
+//       result.push(count);  // add the count to the result array
+//     }
+//     return result;  // return the result array
+//   }
+
+
+// Q: 16 We are given a list nums of integers representing a list compressed with run-length encoding.
+
+// Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  For each such pair, there are freq elements with value val concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.
+
+// Return the decompressed list.
+
+
+// // Define a function called "decompressRLElist"
+// function decompressRLElist(nums) {
+//     let result = []; // Create an empty array called "result" to store the decompressed list
+//     for (let i = 0; i < nums.length; i += 2) { // Loop through the "nums" array with a step of 2
+//       let freq = nums[i]; // Get the frequency from the current index
+//       let val = nums[i + 1]; // Get the value from the next index
+//       for (let j = 0; j < freq; j++) { // Loop through "freq" number of times
+//         result.push(val); // Add "val" to the end of the "result" array
+//       }
+//     }
+//     return result; // Return the decompressed list stored in the "result" array
+//   }
+  
+
+// Q:17 Given two arrays of integers nums and index. Your task is to create target array under the following rules:
+
+// Initially target array is empty.
+// From left to right read nums[i] and index[i], insert at index index[i] the value nums[i] in target array.
+// Repeat the previous step until there are no elements to read in nums and index.
+// Return the target array.
+
+// It is guaranteed that the insertion operations will be valid.
+
+// function createTargetArray(nums, index) {
+//     // Initialize an empty array to store the target array
+//     let target = [];
+    
+//     // Loop through each element of nums
+//     for (let i = 0; i < nums.length; i++) {
+//       // Insert the element nums[i] at the index index[i] in target array
+//       target.splice(index[i], 0, nums[i]);
+//     }
+    
+//     // Return the target array
+//     return target;
+//   }
+
+
+// Q: 18 You are given an array items, where each items[i] = [typei, colori, namei] describes the type, color, and name of the ith item. You are also given a rule represented by two strings, ruleKey and ruleValue.
+
+// The ith item is said to match the rule if one of the following is true:
+
+// ruleKey == "type" and ruleValue == typei.
+// ruleKey == "color" and ruleValue == colori.
+// ruleKey == "name" and ruleValue == namei.
+// Return the number of items that match the given rule.
+
+
+// function countItems(items, ruleKey, ruleValue) {
+//     // initialize count variable to keep track of matching items
+//     let count = 0;
+    
+//     // loop through each item in the items array
+//     for (let i = 0; i < items.length; i++) {
+//       // check if the item matches the given rule
+//       if (items[i][0] === ruleKey && items[i][1] === ruleValue) {
+//         // if yes, increment the count
+//         count++;
+//       } else if (items[i][0] === ruleKey && items[i][2] === ruleValue) {
+//         // if yes, increment the count
+//         count++;
+//       } else if (items[i][1] === ruleKey && items[i][2] === ruleValue) {
+//         // if yes, increment the count
+//         count++;
+//       }
+//     }
+    
+//     // return the count of matching items
+//     return count;
+//   }
+
+
+// Q: 19 Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.
+
+// A subarray is a contiguous subsequence of the array.
+
+// function sumOddLengthSubarrays(arr) {
+//     let sum = 0;
+    
+//     // Loop through each subarray length
+//     for (let len = 1; len <= arr.length; len += 2) {
+//       // Loop through each starting index of subarray
+//       for (let start = 0; start < arr.length; start++) {
+//         // Calculate ending index of subarray
+//         let end = start + len - 1;
+//         // If ending index is greater than the length of arr, break the loop
+//         if (end >= arr.length) break;
+//         // Loop through each element of subarray and add it to the sum
+//         for (let i = start; i <= end; i++) {
+//           sum += arr[i];
+//         }
+//       }
+//     }
+    
+//     return sum;
+//   }
+
+
+// Q: 20 You are given an n x n integer matrix grid.
+
+// Generate an integer matrix maxLocal of size (n - 2) x (n - 2) such that:
+
+// maxLocal[i][j] is equal to the largest value of the 3 x 3 matrix in grid centered around row i + 1 and column j + 1.
+// In other words, we want to find the largest value in every contiguous 3 x 3 matrix in grid.
+
+// Return the generated matrix.
+
+// // Define a function to find the maxLocal matrix
+// function largestValuesInGrid(grid) {
+//     // Create a variable to store the maxLocal matrix
+//     let maxLocal = [];
+  
+//     // Loop through the rows of the grid
+//     for (let i = 1; i < grid.length - 1; i++) {
+//         // Create a new array to store the values for each row
+//         let row = [];
+  
+//         // Loop through the columns of the grid
+//         for (let j = 1; j < grid[i].length - 1; j++) {
+//             // Find the largest value in the 3 x 3 matrix
+//             let max = Math.max(grid[i - 1][j - 1], grid[i - 1][j], grid[i - 1][j + 1], grid[i][j - 1], grid[i][j], grid[i][j + 1], grid[i + 1][j - 1], grid[i + 1][j], grid[i + 1][j + 1]);
+  
+//             // Add the largest value to the row
+//             row.push(max);
+//         }
+  
+//         // Add the row to the maxLocal matrix
+//         maxLocal.push(row);
+//     }
+  
+//     // Return the maxLocal matrix
+//     return maxLocal;
+// }
+
+
+
+  
+  
+
+  
+
+
+  
+
+
+  
+  
+  
+
+
+  
+
+  
+
+
+
+
+
 
 
 
