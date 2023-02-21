@@ -1127,10 +1127,285 @@
 //   }
   
 
-  
+// Q: 31 There are n rings and each ring is either red, green, or blue. The rings are distributed across ten rods labeled from 0 to 9.
+
+// You are given a string rings of length 2n that describes the n rings that are placed onto the rods. Every two characters in rings forms a color-position pair that is used to describe each ring where:
+
+// The first character of the ith pair denotes the ith ring's color ('R', 'G', 'B').
+// The second character of the ith pair denotes the rod that the ith ring is placed on ('0' to '9').
+// For example, "R3G2B1" describes n == 3 rings: a red ring placed onto the rod labeled 3, a green ring placed onto the rod labeled 2, and a blue ring placed onto the rod labeled 1.
+
+// Return the number of rods that have all three colors of rings on them.
 
 
+// function getNumRodsWithAllColors(rings) {
+//     const n = rings.length / 2; // get the number of rings
+//     const rods = {}; // create an empty object to store the rods and their colors
   
+//     for (let i = 0; i < n; i++) { // loop through each ring
+//       const color = rings[2 * i]; // get the color of the ring
+//       const rod = rings[2 * i + 1]; // get the rod that the ring is placed on
+  
+//       if (!rods[rod]) { // if the rod is not in the object yet
+//         rods[rod] = { R: false, G: false, B: false }; // create a new entry for the rod with all colors set to false
+//       }
+  
+//       rods[rod][color] = true; // set the color of the ring on the rod to true
+//     }
+  
+//     let count = 0; // initialize a counter for the number of rods with all three colors
+  
+//     for (const rod in rods) { // loop through each rod in the object
+//       if (rods[rod].R && rods[rod].G && rods[rod].B) { // if the rod has all three colors
+//         count++; // increment the count
+//       }
+//     }
+  
+//     return count; // return the number of rods with all three colors
+//   }
+  
+  
+
+// Q: 32 You are given an array of strings names, and an array heights that consists of distinct positive integers. Both arrays are of length n.
+
+// For each index i, names[i] and heights[i] denote the name and height of the ith person.
+
+// Return names sorted in descending order by the people's heights.
+
+
+// function sortByHeight(names, heights) {
+//     const sortedHeights = [...heights].sort((a, b) => b - a); // create a new array of heights sorted in descending order
+//     const result = []; // create an empty array to store the sorted names
+  
+//     for (const height of sortedHeights) { // loop through each height in the sorted array
+//       const index = heights.indexOf(height); // get the index of the height in the original array
+//       result.push(names[index]); // add the corresponding name to the result array
+//       names.splice(index, 1); // remove the name from the original array to avoid duplicates
+//       heights.splice(index, 1); // remove the height from the original array as well
+//     }
+  
+//     return result; // return the sorted array of names
+//   }
+  
+
+// Q: 33  A valid parentheses string is either empty "", "(" + A + ")", or A + B, where A and B are valid parentheses strings, and + represents string concatenation.
+
+// For example, "", "()", "(())()", and "(()(()))" are all valid parentheses strings.
+// A valid parentheses string s is primitive if it is nonempty, and there does not exist a way to split it into s = A + B, with A and B nonempty valid parentheses strings.
+
+// Given a valid parentheses string s, consider its primitive decomposition: s = P1 + P2 + ... + Pk, where Pi are primitive valid parentheses strings.
+
+// Return s after removing the outermost parentheses of every primitive string in the primitive decomposition of s.
+
+
+// function removeOuterParentheses(s) {
+//     let result = ""; // create an empty string to store the result
+//     let count = 0; // initialize a counter for the number of open parentheses
+  
+//     for (let i = 0; i < s.length; i++) { // loop through each character in the input string
+//       if (s[i] === "(") { // if the current character is an open parenthesis
+//         count++; // increment the counter
+//         if (count > 1) { // if this is not the outermost open parenthesis
+//           result += s[i]; // add it to the result
+//         }
+//       } else { // if the current character is a close parenthesis
+//         count--; // decrement the counter
+//         if (count > 0) { // if this is not the outermost close parenthesis
+//           result += s[i]; // add it to the result
+//         }
+//       }
+//     }
+  
+//     return result; // return the final result string
+//   }
+
+
+
+// Q: 34 You are given a 0-indexed string s that has lowercase English letters in its even indices and digits in its odd indices.
+
+// There is a function shift(c, x), where c is a character and x is a digit, that returns the xth character after c.
+
+// For example, shift('a', 5) = 'f' and shift('x', 0) = 'x'.
+// For every odd index i, you want to replace the digit s[i] with shift(s[i-1], s[i]).
+
+// Return s after replacing all digits. It is guaranteed that shift(s[i-1], s[i]) will never exceed 'z'.
+
+
+// function replaceDigits(s) {
+//     const shift = (c, x) => String.fromCharCode(c.charCodeAt(0) + x); // function to shift character by x positions
+  
+//     let result = ''; // initialize the result string
+  
+//     for (let i = 0; i < s.length; i++) {
+//       if (i % 2 === 0) {
+//         result += s[i]; // if current index is even, add the character to the result string
+//       } else {
+//         const shiftedChar = shift(s[i - 1], parseInt(s[i])); // shift the character based on the previous character
+//         result += shiftedChar; // add the shifted character to the result string
+//       }
+//     }
+  
+//     return result; // return the final result string
+//   }
+
+
+
+// Q: 35 write a easy to understand code in javascript which
+
+// Given an array of strings patterns and a string word, return the number of strings in patterns that exist as a substring in word.
+
+// A substring is a contiguous sequence of characters within a string.
+
+// and also comment on each line
+
+
+// function numOfStrings(patterns, word) {
+//     let count = 0;
+//     for (let i = 0; i < patterns.length; i++) {
+//       if (word.includes(patterns[i])) {
+//         count++;
+//       }
+//     }
+//     return count;
+//   }
+
+  
+
+// Q: 36 You are given coordinates, a string that represents the coordinates of a square of the chessboard. Below is a chessboard for your reference.
+
+
+
+// Return true if the square is white, and false if the square is black.
+
+// The coordinate will always represent a valid chessboard square. The coordinate will always have the letter first, and the number second.
+
+
+// function squareIsWhite(coordinates) {
+//     // Get the first character of the coordinates (letter)
+//     const letter = coordinates[0];
+//     // Get the second character of the coordinates (number)
+//     const number = coordinates[1];
+    
+//     // Check if the sum of the ASCII codes of the letter and number is odd
+//     if ((letter.charCodeAt(0) + number.charCodeAt(0)) % 2 !== 0) {
+//       return true; // If odd, the square is white
+//     } else {
+//       return false; // If even, the square is black
+//     }
+//   }
+
+
+// Q: 37 Given an integer n, return a string with n characters such that each character in such string occurs an odd number of times.
+
+// The returned string must contain only lowercase English letters. If there are multiples valid strings, return any of them.  
+
+
+
+// function generateStringWithOddOccurrences(n) {
+//     let result = '';
+  
+//     // Generate a string of alternating characters until it reaches the required length
+//     for (let i = 0; i < n; i++) {
+//       if (i % 2 === 0) {
+//         result += 'a';
+//       } else {
+//         result += 'b';
+//       }
+//     }
+  
+//     return result;
+//   }
+
+
+
+// Q: 38 You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path going from cityAi to cityBi. Return the destination city, that is, the city without any path outgoing to another city.
+
+// It is guaranteed that the graph of paths forms a line without any loop, therefore, there will be exactly one destination city. 
+
+
+// function destCity(paths) {
+//     const destinations = new Set(); // create an empty set to store all the destination cities
+//     const origins = new Set(); // create an empty set to store all the origin cities
+  
+//     for (let path of paths) { // loop through each path
+//       origins.add(path[0]); // add the origin city to the set of origins
+//       destinations.add(path[1]); // add the destination city to the set of destinations
+//     }
+  
+//     for (let destination of destinations) { // loop through each destination
+//       if (!origins.has(destination)) { // check if the destination is not an origin city
+//         return destination; // return the destination city
+//       }
+//     }
+//   }
+  
+  
+
+// Q: 39 You are given a string s. Reorder the string using the following algorithm:
+// Pick the smallest character from s and append it to the result.
+// Pick the smallest character from s which is greater than the last appended character to the result and append it.
+// Repeat step 2 until you cannot pick more characters.
+// Pick the largest character from s and append it to the result.
+// Pick the largest character from s which is smaller than the last appended character to the result and append it.
+// Repeat step 5 until you cannot pick more characters.
+// Repeat the steps from 1 to 6 until you pick all characters from s.
+// In each step, If the smallest or the largest character appears more than once you can choose any occurrence and append it to the result.
+
+// Return the result string after sorting s with this algorithm.
+
+
+// function sortString(s) {
+//     // Create an array of length 26 to keep track of the count of each character in the string
+//     const charCounts = new Array(26).fill(0);
+//     // Get the length of the input string
+//     const n = s.length;
+//     // Loop through each character in the input string and update the count in the charCounts array
+//     for (let i = 0; i < n; i++) {
+//       charCounts[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+//     }
+//     // Initialize an empty string to hold the sorted characters
+//     let result = '';
+//     // Keep looping until the length of the result string matches the length of the input string
+//     while (result.length < n) {
+//       // Loop through each character in the charCounts array from smallest to largest
+//       for (let i = 0; i < 26; i++) {
+//         // If the count for the current character is greater than 0, append it to the result string and decrement its count
+//         if (charCounts[i] > 0) {
+//           result += String.fromCharCode(i + 'a'.charCodeAt(0));
+//           charCounts[i]--;
+//         }
+//       }
+//       // Loop through each character in the charCounts array from largest to smallest
+//       for (let i = 25; i >= 0; i--) {
+//         // If the count for the current character is greater than 0, append it to the result string and decrement its count
+//         if (charCounts[i] > 0) {
+//           result += String.fromCharCode(i + 'a'.charCodeAt(0));
+//           charCounts[i]--;
+//         }
+//       }
+//     }
+//     // Return the sorted result string
+//     return result;
+//   }
+  
+
+// Q: 40 You are given an array of strings words and a string pref
+// Return the number of strings in words that contain pref as a prefix.
+// A prefix of a string s is any leading contiguous substring of s.
+
+
+// function countPrefix(words, pref) {
+//     let count = 0;
+//     for (let i = 0; i < words.length; i++) { // loop through each word in the array
+//       if (words[i].startsWith(pref)) { // check if the word starts with the prefix
+//         count++; // increment the count if it does
+//       }
+//     }
+//     return count; // return the count of words containing the prefix
+//   }
+   
+
+
 
 
 
@@ -1853,8 +2128,172 @@
 //   console.log(countVowels("anabcod"));
 
 
+
+// Q: 26 Given an array of integers arr, and three integers a, b and c. You need to find the number of good triplets.
+
+// A triplet (arr[i], arr[j], arr[k]) is good if the following conditions are true:
+
+// 0 <= i < j < k < arr.length
+// |arr[i] - arr[j]| <= a
+// |arr[j] - arr[k]| <= b
+// |arr[i] - arr[k]| <= c
+// Where |x| denotes the absolute value of x.
+
+// Return the number of good triplets.
+
+
+// https://leetcode.com/problems/count-good-triplets/
+
+// function countGoodTriplets(arr, a, b, c) {
+//     let count = 0; // initialize count to 0
+//     const n = arr.length; // get length of array
+//     for (let i = 0; i < n; i++) { // loop over array and consider each element as arr[i]
+//       for (let j = i + 1; j < n; j++) { // loop over array starting from i + 1 and consider each element as arr[j]
+//         if (Math.abs(arr[i] - arr[j]) > a) { // if the absolute difference between arr[i] and arr[j] is greater than a, move to next iteration
+//           continue;
+//         }
+//         for (let k = j + 1; k < n; k++) { // loop over array starting from j + 1 and consider each element as arr[k]
+//           if (Math.abs(arr[j] - arr[k]) > b) { // if the absolute difference between arr[j] and arr[k] is greater than b, move to next iteration
+//             continue;
+//           }
+//           if (Math.abs(arr[i] - arr[k]) > c) { // if the absolute difference between arr[i] and arr[k] is greater than c, move to next iteration
+//             continue;
+//           }
+//           count++; // if all conditions are satisfied, increment count by 1
+//         }
+//       }
+//     }
+//     return count; // return the final count of good triplets
+//   }
+
+  
+// Q: 27 Given a 0-indexed integer array nums of length n and an integer k, return the number of pairs (i, j) where 0 <= i < j < n, such that nums[i] == nums[j] and (i * j) is divisible by k.
+// https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/
+
+// function numOfPairs(nums, k) {
+//     const n = nums.length;
+//     const counts = new Map();
+//     let result = 0;
+  
+//     // Count the frequency of each element in nums.
+//     for (let i = 0; i < n; i++) {
+//       if (counts.has(nums[i])) {
+//         counts.set(nums[i], counts.get(nums[i]) + 1);
+//       } else {
+//         counts.set(nums[i], 1);
+//       }
+//     }
+  
+//     // Iterate over each element in counts and check if it has a pair
+//     // that satisfies the conditions.
+//     for (const [num, count] of counts) {
+//       const complement = (k - num % k) % k;
+//       if (counts.has(complement)) {
+//         const complementCount = counts.get(complement);
+//         result += count * complementCount;
+//       }
+//     }
+  
+//     // If k is even, we need to check pairs of elements that have the same value
+//     // and are located at i and j such that i % k = j % k = k / 2.
+//     if (k % 2 === 0) {
+//       const half = k / 2;
+//       if (counts.has(half)) {
+//         const halfCount = counts.get(half);
+//         result += (halfCount * (halfCount - 1)) / 2;
+//       }
+//     }
+  
+//     return result;
+//   }
+
+  
+
+
+// Q: 28 Given the array of integers nums, you will choose two different indices i and j of that array. Return the maximum value of (nums[i]-1)*(nums[j]-1).
+// https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/
+
+// function maxProduct(nums) {
+//     let max1 = 0; // variable to store the maximum number in the array
+//     let max2 = 0; // variable to store the second maximum number in the array
+  
+//     // loop through the array to find the two maximum numbers
+//     for (let num of nums) {
+//       if (num >= max1) {
+//         // if the current number is greater than or equal to the maximum number
+//         max2 = max1; // update the second maximum number
+//         max1 = num; // update the maximum number
+//       } else if (num >= max2) {
+//         // if the current number is greater than or equal to the second maximum number
+//         max2 = num; // update the second maximum number
+//       }
+//     }
+  
+//     // calculate the product of the two maximum numbers minus 1 and return it
+//     return (max1 - 1) * (max2 - 1);
+//   }
+  
+
+// Q: 29 You are given an array rectangles where rectangles[i] = [li, wi] represents the ith rectangle of length li and width wi.
+
+// You can cut the ith rectangle to form a square with a side length of k if both k <= li and k <= wi. For example, if you have a rectangle [4,6], you can cut it to get a square with a side length of at most 4.
+
+// Let maxLen be the side length of the largest square you can obtain from any of the given rectangles.
+
+// Return the number of rectangles that can make a square with a side length of maxLen.
+
+
+// https://leetcode.com/problems/number-of-rectangles-that-can-form-the-largest-square/
+
+// function countGoodRectangles(rectangles) {
+//     let maxLen = 0; // initialize the maximum length to 0
+//     let count = 0; // initialize the count to 0
+    
+//     // loop through each rectangle in the array
+//     for (let i = 0; i < rectangles.length; i++) {
+//       let [l, w] = rectangles[i]; // get the length and width of the current rectangle
+//       let len = Math.min(l, w); // find the length of the largest square that can be cut from the rectangle
+      
+//       // if the length of the current square is greater than or equal to the current maximum length
+//       if (len >= maxLen) {
+//         // if the length is equal to the maximum length, increment the count
+//         if (len === maxLen) count++;
+//         // if the length is greater than the maximum length, update the maximum length and reset the count
+//         else {
+//           maxLen = len;
+//           count = 1;
+//         }
+//       }
+//     }
+    
+//     return count; // return the count of rectangles that can make a square with a side length of maxLen
+//   }
   
   
+  
+// Q: 30 Given an integer n, return any array containing n unique integers such that they add up to 0.
+
+// https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/
+
+// function sumZero(n) {
+//     const result = []; // initialize an empty array to store the result
+//     let sum = 0; // initialize a variable to keep track of the sum of the elements
+    
+//     // loop through n-1 elements and add them to the result array
+//     for (let i = 0; i < n - 1; i++) {
+//       result.push(i); // add the current index to the result array
+//       sum += i; // add the current index to the sum
+//     }
+    
+//     // add the opposite of the sum to the result array to make the sum of all elements 0
+//     result.push(-sum);
+    
+//     return result; // return the result array
+//   }
+
+  
+
+
 
 
   
