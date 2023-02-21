@@ -4,7 +4,7 @@
 // *********************|
 // **********************
 
-//  Q: 01 Roman numeral to a number.
+//  Q: 01 Given an integer x, return true if x is a palindrome, and false otherwise.
 // console.log("Prblem:02 Given an integer x, return true if x is a palindrome, and false otherwise.");
 // function display(inputParam) {
 //     if((inputParam.split("").reverse().join("")) == inputParam){
@@ -37,74 +37,103 @@
 
 
 
-//  Q: 03 Roman numeral to a number.
+//  Q: 03 Prblem:04 Return a Reverse Number.
 // console.log("Prblem:04 Return a Reverse Number");
 // function display(inputParam) {
 //   for (let index = inputParam.length; index >= 0; index--) {
-//     // const element = array[index];
 //     console.log(inputParam.charAt(index));
-// // console.log("Return a Reverse Number");
-
 //   }
 
 //   }
-//   var input = "aaabbbcccdddeee";
-//   display(input);
+
+// var reverse = function(x) {
+//   let reversed = 0;
+
+
+  
+//   var result = "";
+//   var sign = "";
+//   var toString = "";
+//   if(x < 0){
+//     toString =  '' + x;
+//     toString = toString.slice(1); 
+//     sign = "-";
+//   }
+//   else
+//   {
+//     toString =  '' + x;
+//   }
+//   for (let index = toString.length; index >= 0; index--) {
+//   result += toString.charAt(index);
+// }
+
+// if (result < -Math.pow(2, 31) || result > Math.pow(2, 31) - 1) {
+//   return console.log("0");;
+// } else {
+//   return console.log(sign+result);
+// }
+  
+// };
+//   var input = 2147483647;
+//   reverse(input);
 
 
 
-//  Q: 04 Roman numeral to a number.
+//  Q: 04 Sqrt(x).
 // console.log("Prblem:04 Sqrt(x)");
 // function display(inputParam) {
 
-// // first check if number is even divide by even numbers otehrwise odd 
+// first check if number is even divide by even numbers otehrwise odd 
 
-// // then multiply every even number and compare output with input 
-// // if match then return otherwsie false
-// // 
-
-
-// var check = inputParam%2;
-
-// if(check == 0)
-// {
-//     for(var i=0; i<inputParam; i++)
-//     {
-//         if(i%2 == 0)
-//         {
-//             if(i*i == inputParam)
-//             {
-//                 console.log("Yes It is perfect root"+ i);
-//                 return true;   
-//             }
-//         }
-
-//         if(i%2 == 1)
-//         {
-//             if(i*i == inputParam)
-//             {
-//                 console.log("Yes It is perfect root"+ i);
-//                 return true;   
-//             }
-//         }
+// then multiply every even number and compare output with input 
+// if match then return otherwsie false
+// 
 
 
+// uploaded on leetcode 
+// function sqrt(x) {
+//     // Check if the input is negative or not a whole number
+//     if (x < 0 || x % 1 !== 0) {
+//       // If so, return null as the square root of a negative number or a fractional number cannot be found
+//       return null;
 //     }
-
-// console.log(check);
-
-// }
-
-// // for (var i = 0; i <
-
-
-
+    
+//     // Initialize the result to 0
+//     let result = 0;
+    
+//     // Keep looping while the square of the result is less than or equal to the input
+//     while (result * result <= x) {
+//       // Increment the result by 1 each iteration
+//       result++;
+//     }
+    
+//     // Return the result - 1, as the last iteration of the loop would have incremented the result above the square root
+//     return result - 1;
 //   }
-//   var input = 9;
-//   display(input);
+  
+  
+// uploaded on leetcode 
+// Here's an example code in JavaScript that determines whether a given number is a perfect square or not:
+
+// function isPerfectSquare(num) {
+//     let i = 1;
+    
+//     // Use a while loop to increment `i` until `i` squared is greater than `num`
+//     while (i * i < num) {
+//       i++;
+//     }
+    
+//     // If `i` squared is equal to `num`, then `num` is a perfect square
+//     return i * i === num;
+//   }
+
+//   console.log(isPerfectSquare(3))  
+
+  
 
 
-//Q:05 You can solve this problem by first splitting the input string into a list of color strings. Then, you can create a dictionary where the keys are the positions and the values are the corresponding color names. Iterate through the list of color strings and extract the position from each string, using it as the key to store the color name in the dictionary. Finally, iterate through the dictionary in order of the keys and concatenate the color names to build the final string. 
+
+// Q:05 You can solve this problem by first splitting the input string into a list of color strings. Then, you can create a dictionary where the keys are the positions and the values are the corresponding color names. Iterate through the list of color strings and extract the position from each string, using it as the key to store the color name in the dictionary. Finally, iterate through the dictionary in order of the keys and concatenate the color names to build the final string. 
 
 // Algorthim 
 // split string in list of colors
@@ -197,7 +226,7 @@
 // Algorthim 
 // first remove the spaces from string
 // split string into array
-//get last word
+// get last word
 // return the length of last word
 
 // const lengthofLastWord = (str) => {
@@ -972,7 +1001,132 @@
 
 
 
+// Q: 26 Given an array of strings patterns and a string word, return the number of strings in patterns that exist as a substring in word.
+
+// A substring is a contiguous sequence of characters within a string.
+
+
+
+// function countMatchingSubstrings(patterns, word) {
+//     let count = 0; // initialize a counter variable to keep track of the number of matching substrings
+//     for (let pattern of patterns) { // loop through each pattern string in the patterns array
+//       if (word.includes(pattern)) { // check if the word includes the current pattern string as a substring
+//         count++; // increment the counter variable if a matching substring is found
+//       }
+//     }
+//     return count; // return the total count of matching substrings
+//   }
   
+  
+// Q: 27 You are given a string s formed by digits and '#'. We want to map s to English lowercase characters as follows:
+
+// Characters ('a' to 'i') are represented by ('1' to '9') respectively.
+// Characters ('j' to 'z') are represented by ('10#' to '26#') respectively.
+// Return the string formed after mapping.
+
+
+// function mapString(s) {
+//     const charCodeOffset = 'a'.charCodeAt(0) - 1; // set the offset to convert numbers to characters
+//     let result = ''; // initialize an empty string to store the mapped string
+//     let i = 0; // initialize a pointer to keep track of the current position in the string
+  
+//     while (i < s.length) { // loop through each character in the string
+//       let code = s[i]; // get the current character
+  
+//       if (s[i + 2] === '#') { // check if the next two characters form a valid code (i.e., '10#' to '26#')
+//         code = s.substring(i, i + 3); // get the three characters that form the code
+//         i += 3; // increment the pointer by 3
+//       } else { // otherwise, assume the current character is a valid code
+//         i++; // increment the pointer by 1
+//       }
+  
+//       const charCode = parseInt(code) + charCodeOffset; // convert the code to a character code
+//       result += String.fromCharCode(charCode); // append the corresponding character to the result string
+//     }
+  
+//     return result; // return the mapped string
+//   }
+  
+
+// Q: 28 Given an array of strings words, return the first palindromic string in the array. If there is no such string, return an empty string "".
+
+// A string is palindromic if it reads the same forward and backward.
+
+// function findFirstPalindromicString(words) {
+//     for (let word of words) { // loop through each word in the array
+//       if (isPalindromic(word)) { // check if the word is palindromic
+//         return word; // return the word if it is palindromic
+//       }
+//     }
+//     return ''; // return an empty string if no palindromic word is found
+//   }
+  
+//   function isPalindromic(word) {
+//     let i = 0; // initialize a pointer to the beginning of the word
+//     let j = word.length - 1; // initialize a pointer to the end of the word
+  
+//     while (i < j) { // loop until the two pointers meet in the middle of the word
+//       if (word[i] !== word[j]) { // check if the characters at the two pointers are different
+//         return false; // return false if the word is not palindromic
+//       }
+//       i++; // move the first pointer to the right
+//       j--; // move the second pointer to the left
+//     }
+  
+//     return true; // return true if the word is palindromic
+//   }
+  
+
+
+// Q: 29 Given a 0-indexed string word and a character ch, reverse the segment of word that starts at index 0 and ends at the index of the first occurrence of ch (inclusive). If the character ch does not exist in word, do nothing.
+
+// For example, if word = "abcdefd" and ch = "d", then you should reverse the segment that starts at 0 and ends at 3 (inclusive). The resulting string will be "dcbaefd".
+// Return the resulting string.
+
+
+
+// function reverseStringUntilFirstOccurrence(word, ch) {
+//     const index = word.indexOf(ch); // get the index of the first occurrence of the character
+  
+//     if (index === -1) { // if the character is not found, do nothing and return the original string
+//       return word;
+//     }
+  
+//     const prefix = word.substring(0, index + 1); // get the substring that starts at index 0 and ends at the index of the first occurrence of the character (inclusive)
+//     const suffix = word.substring(index + 1); // get the substring that starts at the index of the first occurrence of the character (exclusive)
+  
+//     return reverseString(prefix) + suffix; // reverse the prefix and concatenate it with the suffix to get the resulting string
+//   }
+  
+//   function reverseString(str) {
+//     return str.split('').reverse().join(''); // split the string into an array of characters, reverse the array, and join the characters back into a string
+//   }
+
+
+// Q: 30 You are given a string s of even length. Split this string into two halves of equal lengths, and let a be the first half and b be the second half.
+
+// Two strings are alike if they have the same number of vowels ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'). Notice that s contains uppercase and lowercase letters.
+
+// Return true if a and b are alike. Otherwise, return false.
+
+
+// function halvesAreAlike(s) {
+//     const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']; // an array of all vowels
+//     const n = s.length; // get the length of the string
+//     const mid = n / 2; // find the index of the middle character of the string
+  
+//     let count = 0; // initialize a counter for the number of vowels
+  
+//     for (let i = 0; i < n; i++) { // loop through each character of the string
+//       if (vowels.includes(s[i])) { // if the character is a vowel
+//         count += i < mid ? 1 : -1; // increment or decrement the count based on which half of the string the character belongs to
+//       }
+//     }
+  
+//     return count === 0; // the halves are alike if the count of vowels is 0
+//   }
+  
+
   
 
 
@@ -1671,7 +1825,32 @@
 //     }
 //     return sum;
 //   }
-  
+
+
+
+
+
+// function countVowels(input) {
+    
+//     // const countVowels = new Map();
+//     const  vowelCount = {};
+//     // var count =0;
+//     const vowels = ['a', 'e', 'i', 'o', 'u'];
+//     for (let i = 0; i < input.length; i++) {
+//         const char = input[i];
+//         if (vowels.includes(char)) {
+//             if (vowelCount[char]) {
+//                 vowelCount[char]++;
+//               } else {
+//                 vowelCount[char] = 1;
+//               }
+//         }
+//     }
+
+//     return vowelCount;
+//   }
+
+//   console.log(countVowels("anabcod"));
 
 
   
