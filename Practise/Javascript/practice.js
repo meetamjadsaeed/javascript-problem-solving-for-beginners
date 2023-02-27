@@ -252,23 +252,23 @@
 // 	add numberfrom romannumbers to empty string
 //       remove that value from input which is converted
 
-// const convertToRoman = (input) => {
+const convertToRoman = (input) => {
 
-// var roman = "";
-// var romanNumeral = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
-// var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+var roman = "";
+var romanNumeral = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 
-// for (var i = 0; i <numbers.length; i++) {
-//     while(input>=numbers[i]){
-//         roman+=romanNumeral[i];
-//         input-=numbers[i];
-//     }
-// }
+for (var i = 0; i <numbers.length; i++) {
+    while(input>=numbers[i]){
+        roman+=romanNumeral[i];
+        input-=numbers[i];
+    }
+}
 
-//     return roman;
-// }
+    return roman;
+}
 
-// console.log(convertToRoman("52"));
+console.log(convertToRoman("52"));
 
 
 
@@ -2209,7 +2209,7 @@
 
   
 
-
+// uploaded 
 // Q: 28 Given the array of integers nums, you will choose two different indices i and j of that array. Return the maximum value of (nums[i]-1)*(nums[j]-1).
 // https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/
 
@@ -2234,6 +2234,8 @@
 //   }
   
 
+
+// uploaded 
 // Q: 29 You are given an array rectangles where rectangles[i] = [li, wi] represents the ith rectangle of length li and width wi.
 
 // You can cut the ith rectangle to form a square with a side length of k if both k <= li and k <= wi. For example, if you have a rectangle [4,6], you can cut it to get a square with a side length of at most 4.
@@ -2270,7 +2272,7 @@
 //   }
   
   
-  
+// uploadded  
 // Q: 30 Given an integer n, return any array containing n unique integers such that they add up to 0.
 
 // https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/
