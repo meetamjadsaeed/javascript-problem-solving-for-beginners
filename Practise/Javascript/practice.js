@@ -1998,6 +1998,7 @@ console.log(convertToRoman("52"));
   
 
 
+// uploaded   
 // Q: 23 You are given a string allowed consisting of distinct characters and an array of strings words. A string is consistent if all characters in the string appear in the string allowed.
 
 // Return the number of consistent strings in the array words.
@@ -2031,6 +2032,8 @@ console.log(convertToRoman("52"));
 //   }
   
 
+
+// uploaded   
 // Q: 24 There are n seats and n students in a room. You are given an array seats of length n, where seats[i] is the position of the ith seat. You are also given the array students of length n, where students[j] is the position of the jth student.
 
 // You may perform the following move any number of times:
@@ -2075,6 +2078,7 @@ console.log(convertToRoman("52"));
 
 
 
+// uploaded   
 
 // Q: 25 You are given an m x n matrix grid consisting of positive integers.
 
@@ -2129,6 +2133,7 @@ console.log(convertToRoman("52"));
 
 
 
+// uploaded   
 // Q: 26 Given an array of integers arr, and three integers a, b and c. You need to find the number of good triplets.
 
 // A triplet (arr[i], arr[j], arr[k]) is good if the following conditions are true:
@@ -2166,7 +2171,8 @@ console.log(convertToRoman("52"));
 //     return count; // return the final count of good triplets
 //   }
 
-  
+
+// uploaded   
 // Q: 27 Given a 0-indexed integer array nums of length n and an integer k, return the number of pairs (i, j) where 0 <= i < j < n, such that nums[i] == nums[j] and (i * j) is divisible by k.
 // https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/
 
